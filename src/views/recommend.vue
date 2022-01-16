@@ -3,11 +3,17 @@
 </template>
 
 <script>
+import { getRecommend } from '@/service/getRecommend'
+
 export default {
-  name: 'recommend'
+  name: 'recommend',
+  async created () {
+    const result = await getRecommend()
+    console.log(result)
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
