@@ -80,6 +80,7 @@ function post (url, params) {
  * @param app
  */
 function registerRouter (app) {
+  debugger
   registerRecommend(app)
 }
 
