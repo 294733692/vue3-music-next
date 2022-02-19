@@ -18,10 +18,9 @@ export default defineComponent({
   },
   setup (props) {
     const rootRef = ref(null)
-    const scroll = useScroll(rootRef, props)
+    useScroll(rootRef, props)
     return {
-      rootRef,
-      scroll
+      rootRef
     }
   }
 })
