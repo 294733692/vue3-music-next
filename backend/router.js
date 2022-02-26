@@ -184,27 +184,17 @@ function registerRecommend (app) {
  * 注册歌手列表接口路由
  * @param app
  */
-function registerSingerList (app) {
+function registerSingerList(app) {
   app.get('/api/getSingerList', (req, res) => {
     const url = 'https://u.y.qq.com/cgi-bin/musics.fcg'
     const HOT_NAME = '热'
 
     const data = JSON.stringify({
-      comm: {
-        ct: 24,
-        cv: 0
-      },
+      comm: { ct: 24, cv: 0 },
       singerList: {
         module: 'Music.SingerListServer',
         method: 'get_singer_list',
-        param: {
-          area: -100,
-          sex: -100,
-          genre: -100,
-          index: -100,
-          sin: 0,
-          cur_page: 1
-        }
+        param: { area: -100, sex: -100, genre: -100, index: -100, sin: 0, cur_page: 1 }
       }
     })
 
@@ -281,7 +271,7 @@ function registerSingerList (app) {
   })
 
   // 做一层数据映射，构造单个 singer 数据结构
-  function map (singerList) {
+  function map(singerList) {
     return singerList.map((item) => {
       return {
         id: item.singer_id,
@@ -291,22 +281,6 @@ function registerSingerList (app) {
       }
     })
   }
-}
-
-/**
- * 做一层数据映射，构造单个 singer 数据结构
- * @param singerList
- * @returns {*}
- */
-function map (singerList) {
-  return singerList.map((item) => {
-    return {
-      id: item.singer_id,
-      mid: item.singer_mid,
-      name: item.singer_name,
-      pic: item.singer_pic.replace(/\.webp$/, '.jpg').replace('150x150', '800x800')
-    }
-  })
 }
 
 module.exports = registerRouter
